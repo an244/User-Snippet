@@ -16,7 +16,7 @@
     */
     
         "Log": {
-        "prefix": "log",
+        "prefix": "logSnippet",
         "body": "console.log($1);"
         },
     
@@ -63,6 +63,23 @@
             ]
         },
     
+        "MongooseSchema": {
+            "prefix": "MongooseSchmaSnippet",
+            "body": [
+                "const mongoose = require('mongoose');",
+                "",
+                "const nameSchema = new mongoose.Schema({",
+                    "name: String,",
+                    "desc: String,",
+                    "image: String,",
+                    "video: String,",
+                "});",
+                
+                "const name = mongoose.model('name',nameSchema);",
+                "module.exports = name;"
+            ]
+        },
+    
             "body-parser": {
                 "prefix": "bodyparserSnippet",
                 "body": "const parser = require('body-parser').urlencoded({extended:false});",
@@ -70,7 +87,7 @@
             },
         
             "route GET": {
-                "prefix": "get/",
+                "prefix": "getSnippet",
                 "body": [
                     "app.get('/$1',(req,res)=> {",
                         " ",
@@ -79,7 +96,7 @@
             },
         
             "route POST": {
-                "prefix": "post/",
+                "prefix": "postSnippet",
                 "body": [
                     "app.post('/$1', parser, (req,res)=> {",
                     "const { } = req.body;",
